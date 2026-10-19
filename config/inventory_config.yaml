@@ -1,0 +1,44 @@
+# Inventory Planning & Replenishment Parameters Configuration
+# Used when raw retail sales data lacks direct inventory / supplier metadata.
+
+simulation_defaults:
+  # Supplier replenishment lead time in calendar days
+  supplier_lead_time_days: 7
+  
+  # Target cycle service level (0.95 = 95% target, corresponding to Z=1.65)
+  service_level_target: 0.95
+  
+  # Standard normal deviate multiplier corresponding to target service level
+  z_score: 1.65
+  
+  # Initial stock multiplier (On-hand stock = multiplier * Average weekly demand)
+  initial_stock_weeks: 2.0
+  
+  # Default unit cost ($) if not provided in raw sales dataset
+  default_unit_cost: 15.00
+  
+  # Annual holding cost rate (0.20 = 20% of unit cost per year)
+  annual_holding_cost_rate: 0.20
+  
+  # Fixed ordering cost ($ per purchase order)
+  fixed_order_cost: 50.00
+  
+  # Review period in days for cycle stock determination
+  review_period_days: 7
+
+operational_constraints:
+  # Minimum Order Quantity (MOQ) - must be a positive integer
+  min_order_quantity: 1
+  
+  # Case pack size for discrete ordering - must be a positive integer
+  case_pack_size: 1
+
+decision_thresholds:
+  # Potential stockout alert if Days of Supply is less than half of lead time
+  stockout_lead_time_ratio: 0.5
+  
+  # Overstock risk alert if Days of Supply exceeds this threshold (days)
+  overstock_days_of_supply: 60.0
+  
+  # Insufficient data threshold: Minimum required sales observations per SKU
+  min_history_days: 14

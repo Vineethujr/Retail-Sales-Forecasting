@@ -1,0 +1,7 @@
+Model,Evaluation_Set,MAE,RMSE,WAPE_pct,Bias_pct
+Naive (Lag-1),Holdout Test,10.398,15.885,24.32,0.07
+7-Day Moving Avg,Holdout Test,8.777,13.347,20.52,0.32
+Seasonal Naive (Lag-7),Holdout Test,8.332,12.895,19.48,0.64
+Random Forest Regressor,Holdout Test,5.277,7.655,12.34,-0.98
+Random Forest (Val Check),Validation,5.921,8.514,14.09,-4.6
+Random Forest (Train Check),Train,3.319,4.527,10.32,-0.06
